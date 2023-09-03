@@ -1,0 +1,40 @@
+// Developer guide to get this project running on your machine. 
+make sure you have python installed in your machine.
+on your terminal/cmd change directory to the project folder
+create a virtual environment using virtualenv package
+    use the command "virtualenv env"
+    activate the environment using this command "source env/bin/activate"
+    depending on the operating system you are using it can be different
+    for windows its different, you can refer on how to do that. 
+    after activating the virtual environment you can install all required packages using the command below
+    "pip install -r requirements.txt"
+    the packages should now be successfully installed 
+
+for asynchronous tasks celery is being used and its message broker being redis. 
+you will need to have redis installed in your machine after that boot it up using the command
+"redis-server" on your terminal. 
+open another terminal instance and to make migrations and run the server using the following commands
+    "python manage.py migrate"
+    "python manage.py runserver"
+
+for serving static files django tailwind is being used 
+use the following command to boot it up as well in a new terminal instance
+    "python3 manage.py tailwind start"
+
+lastly you need boot up celery for asynchronous tasks 
+open a new terminal instance and enter this command. 
+    "celery -A config worker -l info"
+
+by now you should have four terminal instances running i.e
+    redis server
+    django server 
+    tailwind server 
+    celery worker
+
+open your browser and paste the django port server to see the project
+you can copy the port server below. 
+    "http://127.0.0.1:8000/"
+
+
+
+
